@@ -122,7 +122,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
   // Then we add the earthquake layer to our map.
   allEarthquakes.addTo(map);
 
-// 3. Retrieving major earthquake data from the GeoJSON Summary Feed for M4.5+ Earthquakes for the Past 7 Days | Using the same style as the earthquake data (Deliverable 2)
+// 3. Retrieve the major earthquake GeoJSON data >4.5 mag for the week. (Deliverable 2)
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
   function styleInfo(feature) {
     return {
@@ -139,7 +139,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geoj
 // 4. Use the same style as the earthquake data. (Deliverable 2)
     // Style set above
 
-// 5. Using the major code based on the magnitude of the Earthquake and applying three colors (Deliverable 2)
+// 5. Change the color function to use three colors for the major earthquakes based on the magnitude of the earthquake.(Deliverable 2)
 function getColor(magnitude) {
   if (magnitude > 6) {
     return "#ea2c2c";
@@ -150,7 +150,7 @@ function getColor(magnitude) {
     return "#eecc00";
   }
 
-// 6. Function that determines the radius related to the earthquake marker based on its magnitude (Deliverable 2)
+// 6. Use the function that determines the radius of the earthquake marker based on its magnitude.(Deliverable 2)
 function getRadius(magnitude) {
   if (magnitude === 0) {
     return 1;
@@ -176,7 +176,7 @@ L.geoJson(data, {
   }
 }).addTo(majorEarthquakes);
 
-// 8. ADD the major earthquakes layer to the map (Deliverable 2)
+// 8. Add the major earthquakes layer to the map (Deliverable 2)
 majorEarthquakes.addTo(map);
 
 // 9. Close the braces and parentheses for the major earthquake data (Deliverable 2)
