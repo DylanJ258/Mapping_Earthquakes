@@ -16,14 +16,14 @@ let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sate
 });
 
 
-// We create the third tile layer that will be the background of our map *** DELIVERABLE 3 ***
+// We create the third tile layer that will be the background of our map (Deliverable 3)
 let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
 	accessToken: API_KEY
 });
 
-// Create the map object with center, zoom level and default layer *** DELIVERABLE 3 ***
+// Create the map object with center, zoom level and default layer (Deliverable 3)
 let map = L.map('mapid', {
 	center: [40.7, -94.5],
 	zoom: 3,
@@ -215,7 +215,7 @@ legend.onAdd = function() {
   // Finally, we our legend to the map.
   legend.addTo(map);
 
-  // Using D3 and Accessing the tectonic plates by GEOJSON url | Add geoJSON data (style) on the tectonicplates layer | Add tectonicplate layer on the map (Deliverable 1)
+  // Use d3.json to make a call to get our Tectonic Plate geoJSON data. (Deliverable 1)
   d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(plateData) {
     L.geoJson(plateData, {
       color: "#ff6500",
